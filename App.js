@@ -28,20 +28,20 @@ export default function App() {
         <Text>I am Profile Card</Text>
       </View>
       <View style={styles.buttonContainer}>
-        <View>
-          <Image style={styles.chat} source={Images.rewind} />
+        <View style={styles.buttonBarRadius}>
+          <Image style={styles.buttonBarSmall} source={Images.rewind} />
         </View>
-        <View>
-          <Image style={styles.chat} source={Images.nope} />
+        <View style={styles.buttonBarRadius}>
+          <Image style={styles.buttonBarLarge} source={Images.nope} />
         </View>
-        <View>
-          <Image style={styles.chat} source={Images.boost} />
+        <View style={styles.buttonBarRadius}>
+          <Image style={styles.buttonBarSmall} source={Images.boost} />
         </View>
-        <View>
-          <Image style={styles.chat} source={Images.like} />
+        <View style={styles.buttonBarRadius}>
+          <Image style={styles.buttonBarLarge} source={Images.like} />
         </View>
-        <View>
-          <Image style={styles.chat} source={Images.superLike} />
+        <View style={styles.buttonBarRadius}>
+          <Image style={styles.buttonBarSmall} source={Images.superLike} />
         </View>
       </View>
     </View>
@@ -54,12 +54,13 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: "white"
+    backgroundColor: "#21d6ff"
   },
   navigationBar: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
+    borderColor: 'green',
     width: "100%",
     borderWidth: 3,
     justifyContent: 'space-around',
@@ -70,13 +71,17 @@ const styles = StyleSheet.create({
       andriod: {
         height: 56
       },
-      default: {
-        height: 50
+      native: {
+        height: 30
       },
+      default:{
+        height: 80
+      }
     })
   },
   profileCard: {
-    flex: 2,
+    //Margin
+    flex: 3,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
@@ -85,12 +90,15 @@ const styles = StyleSheet.create({
     width:"50%",
   },
   buttonContainer: {
+    //Margin
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'center',
-    width: "100%",
+    justifyContent: 'space-around',
+    height: "40%",
+    width: "70%",
     borderWidth: 3,
+    borderColor: 'blue',
   },
   logo: {
     //Set Width and Height equal to percent
@@ -111,4 +119,30 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     resizeMode: "contain"
   },
+
+  buttonBarSmall: {
+    //set Width and Heigh equal to percents
+    flex: 1,
+    height: 20,
+    width: 20,
+    padding: 30,
+    
+    resizeMode: "contain",
+    //borderRadius: 500,
+    //backgroundColor: "white",
+  },
+  buttonBarLarge: {
+    //set Width and Heigh equal to percents
+    flex: 2,
+    height: 60,
+    width: 60,
+    resizeMode: "contain",
+    //borderWidth: 0.5,
+  },
+  buttonBarRadius: {
+    borderWidth: 3,
+    borderRadius: 500,
+    backgroundColor: "white",
+
+  }
 })
