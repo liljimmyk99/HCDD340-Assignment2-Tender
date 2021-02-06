@@ -10,7 +10,20 @@ import { Images, Profiles } from './App/Themes';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Treender: Where trees are appreciated!</Text>
+
+      <View style={styles.navigationBar}>
+        <Text>I am Nav Bar</Text>
+      </View>
+
+      <View style={styles.profileCard}>
+        <Text>I am Profile Card</Text>
+      </View>
+
+      <View style={styles.buttonContainer}>
+        <Text>I am Button Bar</Text>
+      </View>
+
+      
     </View>
   );
 }
@@ -22,4 +35,22 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  navigationBar: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  profileCard: {
+    flex: 2,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }
 })
