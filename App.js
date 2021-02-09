@@ -5,7 +5,8 @@ import {
   View,
   Image,
   Platform,
-  Dimensions
+  Dimensions,
+  ImageBackground
 } from 'react-native';
 import { Images, Profiles } from './App/Themes';
 
@@ -30,6 +31,7 @@ export default function App() {
       <View style={styles.buttonContainer}>
         <View style={styles.buttonBarRadius}>
           <Image style={styles.buttonBarSmall} source={Images.rewind} />
+          {/*<ImageBackground style={styles.smallCircle}></ImageBackground> */}
         </View>
         <View style={styles.buttonBarRadius}>
           <Image style={styles.buttonBarLarge} source={Images.nope} />
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#21d6ff"
   },
   navigationBar: {
-    flex: 2,
+    flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
     borderColor: 'green',
@@ -75,18 +77,19 @@ const styles = StyleSheet.create({
         height: 30
       },
       default:{
-        height: 80
+        height: 20
       }
     })
   },
   profileCard: {
     //Margin
-    flex: 3,
+    flex: 2,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 3,
     borderColor: 'red',
+    height: "60%",
     width:"50%",
   },
   buttonContainer: {
@@ -95,7 +98,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    height: "40%",
+    height: "10%",
     width: "70%",
     borderWidth: 3,
     borderColor: 'blue',
@@ -126,6 +129,7 @@ const styles = StyleSheet.create({
     height: 20,
     width: 20,
     padding: 30,
+    zIndex: 10,
     
     resizeMode: "contain",
     //borderRadius: 500,
@@ -137,12 +141,17 @@ const styles = StyleSheet.create({
     height: 60,
     width: 60,
     resizeMode: "contain",
-    //borderWidth: 0.5,
   },
   buttonBarRadius: {
     borderWidth: 3,
     borderRadius: 500,
     backgroundColor: "white",
-
+  },
+  smallCircle: {
+    width: 100,
+    height: 100,
+    borderRadius: 100/2,
+    backgroundColor: "red",
+    zIndex: 1,
   }
 })
