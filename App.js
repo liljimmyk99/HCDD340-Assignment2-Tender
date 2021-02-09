@@ -27,9 +27,7 @@ export default function App() {
         </View>
       </View>
       <View style={styles.profileCardView}>
-
-        {ProfileView(Profiles.random)}
-
+        {ProfileView(Profiles.random())}
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonBarRadius}>
@@ -52,14 +50,13 @@ export default function App() {
     </View>
   );
 }
-const window = Dimensions.get("window")
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'space-around',
-    backgroundColor: "#21d6ff"
+    backgroundColor: "#dceef5"
   },
   navigationBar: {
     flex: 1,
@@ -89,7 +86,7 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 1,
+    borderWidth: 4,
     borderColor: '#C5C5C5',
     height: "60%",
     width:"90%",
@@ -124,7 +121,6 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     resizeMode: "contain"
   },
-
   buttonBarSmall: {
     //set Width and Heigh equal to percents
     flex: 1,
