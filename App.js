@@ -1,4 +1,5 @@
 import React from 'react';
+import { AntDesign } from '@expo/vector-icons'; 
 import {
   StyleSheet,
   Text,
@@ -17,7 +18,7 @@ export default function App() {
     <View style={styles.container}>
       <View style={styles.navigationBar}>
         <View>
-        <Image style={styles.chat} source={Images.chat} />
+        <AntDesign name="setting" size={window.width * 0.1} color="#C5C5C5" />
         </View>
         <View>
           <Image style={styles.logo} source={Images.logo} />
@@ -50,6 +51,7 @@ export default function App() {
     </View>
   );
 }
+const window = Dimensions.get("window")
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -62,13 +64,13 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     alignItems: 'center',
-    borderColor: 'green',
     width: "100%",
-    borderWidth: 3,
     justifyContent: 'space-around',
     ...Platform.select({
       ios: {
-       height: 44
+       height: 44,
+       borderBottomColor: "black",
+       borderBottomWidth: 1,
       },
       andriod: {
         height: 56
@@ -86,10 +88,9 @@ const styles = StyleSheet.create({
     flex: 2,
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 4,
-    borderColor: '#C5C5C5',
     height: "60%",
     width:"90%",
+    borderWidth: 1.5
   },
   buttonContainer: {
     //Margin
@@ -97,59 +98,51 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    height: "10%",
+    height: "4%",
     width: "90%",
-    borderWidth: 3,
-    borderColor: 'blue',
   },
   logo: {
     //Set Width and Height equal to percent
-    height: 100,
-    width: 200,
-    resizeMode: "stretch",
+    height: window.width * 0.2,
+    width: window.width * 0.4,
+    resizeMode: "contain",
     flex: 3,
-    borderWidth: 3,
+    borderBottomColor: "black",
+    borderWidth: 1,
     //borderRadius: 20 * 0.5,
     //borderWidth: 1,
   },
   chat: {
     //set Width and Heigh equal to percents
     flex: 1,
-    height: 50,
-    width: 50,
+    height: window.width * 0.1,
+    width: window.width * 0.1,
     tintColor: "#C5C5C5",
-    borderWidth: 3,
-    resizeMode: "contain"
+    resizeMode: "contain",
+
   },
   buttonBarSmall: {
     //set Width and Heigh equal to percents
     flex: 1,
-    height: 20,
-    width: 20,
-    padding: 30,
-    zIndex: 10,
-    
+    height: 50,
+    width: 50,
+    borderWidth: 0.5,
+    borderRadius: 50,
+    backgroundColor: "white",
     resizeMode: "contain",
-    //borderRadius: 500,
-    //backgroundColor: "white",
   },
   buttonBarLarge: {
     //set Width and Heigh equal to percents
     flex: 2,
-    height: 60,
-    width: 60,
+    height: 50,
+    width: 50,
+    borderRadius: 8000,
+    borderWidth: 0.5,
+    backgroundColor: "white",
     resizeMode: "contain",
+
   },
   buttonBarRadius: {
-    borderWidth: 3,
-    borderRadius: 500,
-    backgroundColor: "white",
+
   },
-  smallCircle: {
-    width: 100,
-    height: 100,
-    borderRadius: 100/2,
-    backgroundColor: "red",
-    zIndex: 1,
-  }
 })

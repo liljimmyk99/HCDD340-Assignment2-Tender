@@ -9,12 +9,12 @@ const ProfileView = (profile={}) => {
                 <Image style={profileStyle.picture} source={profile.image}></Image>
             </View>
             <View style={profileStyle.textView}>
-                <View style={{flexDirection:'row'}}>
-                    <Text style={{fontWeight:'bold'}} >{profile.name}, </Text>
-                    <Text>#{profile.id}</Text>
+                <View style={profileStyle.profileInfo}>
+                    <Text style={profileStyle.profileName} >{profile.name}, </Text>
+                    <Text style={profileStyle.profileID}>#{profile.id}</Text>
                 </View>
                 <View>
-                    <Text style={{color: '#C5C5C5'}}> {profile.location} </Text>
+                    <Text style={profileStyle.profileLocation}> {profile.location} </Text>
                 </View>
                 
             </View>
@@ -24,8 +24,8 @@ const ProfileView = (profile={}) => {
 const window = Dimensions.get("window")
 const profileStyle = StyleSheet.create({
     picture: {
-        height: window.height * 0.4,
-        width: window.height * 0.4,
+        height: window.height * 0.35,
+        width: window.height * 0.35,
         borderRadius: 2,
         borderWidth: 1,
         zIndex: -1
@@ -43,8 +43,8 @@ const profileStyle = StyleSheet.create({
         borderWidth: 1,
         padding: 2,
         paddingLeft: 4,
-        width: window.height * 0.4,
-        height: window.height * 0.05,
+        paddingBottom: 5,
+        width: window.height * 0.35,
         backgroundColor: 'white',
         borderBottomLeftRadius: 20,
         borderBottomRightRadius: 20,
@@ -54,6 +54,20 @@ const profileStyle = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center'
 
+    },
+    profileName: {
+        fontWeight:'bold', 
+        fontSize: 24
+    },
+    profileID: {
+        fontSize: 24
+    },
+    profileLocation: {
+        color: '#C5C5C5',
+        fontSize: 16
+    },
+    profileInfo: {
+        flexDirection: 'row'
     }
 
 });
