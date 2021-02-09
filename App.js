@@ -8,6 +8,7 @@ import {
   Dimensions,
   ImageBackground
 } from 'react-native';
+import ProfileView from './App/Components/ProfileView';
 import { Images, Profiles } from './App/Themes';
 
 
@@ -25,8 +26,10 @@ export default function App() {
           <Image style={styles.chat} source={Images.chat} />
         </View>
       </View>
-      <View style={styles.profileCard}>
-        <Text>I am Profile Card</Text>
+      <View style={styles.profileCardView}>
+
+        {ProfileView(Profiles.random)}
+
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonBarRadius}>
@@ -81,16 +84,15 @@ const styles = StyleSheet.create({
       }
     })
   },
-  profileCard: {
+  profileCardView: {
     //Margin
     flex: 2,
-    flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    borderWidth: 3,
-    borderColor: 'red',
+    borderWidth: 1,
+    borderColor: '#C5C5C5',
     height: "60%",
-    width:"50%",
+    width:"90%",
   },
   buttonContainer: {
     //Margin
@@ -99,7 +101,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around',
     height: "10%",
-    width: "70%",
+    width: "90%",
     borderWidth: 3,
     borderColor: 'blue',
   },
