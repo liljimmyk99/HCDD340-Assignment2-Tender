@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AntDesign } from '@expo/vector-icons'; 
 import {
   StyleSheet,
@@ -7,13 +7,15 @@ import {
   Image,
   Platform,
   Dimensions,
-  ImageBackground
+  ImageBackground,
+  Button
 } from 'react-native';
 import ProfileView from './App/Components/ProfileView';
 import { Images, Profiles } from './App/Themes';
 
 
 export default function App() {
+  const [profile, setProfile] = useState(Profiles.hosler)
   return (
     <View style={styles.container}>
       <View style={styles.navigationBar}>
@@ -28,12 +30,13 @@ export default function App() {
         </View>
       </View>
       <View style={styles.profileCardView}>
-        {ProfileView(Profiles.random())}
+        {ProfileView(profile)}
       </View>
       <View style={styles.buttonContainer}>
         <View style={styles.buttonBarRadius}>
+          {//<Button title='' onPress={() => {setProfile(Profiles.random())}}></Button>
           <Image style={styles.buttonBarSmall} source={Images.rewind} />
-          {/*<ImageBackground style={styles.smallCircle}></ImageBackground> */}
+          /*<ImageBackground style={styles.smallCircle}></ImageBackground> */}
         </View>
         <View style={styles.buttonBarRadius}>
           <Image style={styles.buttonBarLarge} source={Images.nope} />
@@ -66,11 +69,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: "100%",
     justifyContent: 'space-around',
+    //Platform.OS === 'ios'
     ...Platform.select({
       ios: {
        height: 44,
-       borderBottomColor: "black",
-       borderBottomWidth: 1,
+      //  borderBottomColor: "black",
+        borderWidth: 3,
       },
       andriod: {
         height: 56
@@ -98,6 +102,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+    borderColor: 'yellow',
+    borderWidth: 3,
     height: "4%",
     width: "90%",
   },
@@ -123,21 +129,21 @@ const styles = StyleSheet.create({
   },
   buttonBarSmall: {
     //set Width and Heigh equal to percents
-    flex: 1,
     height: 50,
     width: 50,
     borderWidth: 0.5,
     borderRadius: 50,
     backgroundColor: "white",
+    borderColor: 'red',
     resizeMode: "contain",
   },
   buttonBarLarge: {
     //set Width and Heigh equal to percents
-    flex: 2,
-    height: 50,
-    width: 50,
-    borderRadius: 8000,
+    height: 70,
+    width: 70,
+    borderRadius: 70 * 0.5,
     borderWidth: 0.5,
+    borderColor: 'blue',
     backgroundColor: "white",
     resizeMode: "contain",
 
