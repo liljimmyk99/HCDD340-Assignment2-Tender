@@ -8,14 +8,35 @@ import {
   Platform,
   Dimensions,
   ImageBackground,
-  Button
+  TouchableOpacity
 } from 'react-native';
 import ProfileView from './App/Components/ProfileView';
 import { Images, Profiles } from './App/Themes';
 
-
 export default function App() {
   const [profile, setProfile] = useState(Profiles.hosler)
+  const [previousPro, setPreviousProfile] = useState({})
+  const nextProfile = () => {
+    console.log("nextProfile function activated")
+    console.log("Current Profile: " + profile.name)
+    console.log("Current previousPro: " + previousPro.name)
+    setPreviousProfile(profile)
+    setProfile(Profiles.random)
+    console.log("New Profile: " + profile.name)
+    console.log("New previousPro: " + previousPro.name)
+    console.log("-------------------------------")
+  
+  }
+  const previousProfile = () => {
+    console.log("previousProfile function activated")
+    setProfile(previousPro)
+    console.log("-------------------------------")
+  
+  }
+  const changeBGColor = () => {
+    styles.container.backgroundColor.replace('red')
+  }
+  
   return (
     <View style={styles.container}>
       <View style={styles.navigationBar}>
@@ -33,23 +54,21 @@ export default function App() {
         {ProfileView(profile)}
       </View>
       <View style={styles.buttonContainer}>
-        <View style={styles.buttonBarRadius}>
-          {//<Button title='' onPress={() => {setProfile(Profiles.random())}}></Button>
+        <TouchableOpacity onPress={previousProfile} >
           <Image style={styles.buttonBarSmall} source={Images.rewind} />
-          /*<ImageBackground style={styles.smallCircle}></ImageBackground> */}
-        </View>
-        <View style={styles.buttonBarRadius}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress= {nextProfile}>
           <Image style={styles.buttonBarLarge} source={Images.nope} />
-        </View>
-        <View style={styles.buttonBarRadius}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={changeBGColor}>
           <Image style={styles.buttonBarSmall} source={Images.boost} />
-        </View>
-        <View style={styles.buttonBarRadius}>
+        </TouchableOpacity>
+        <TouchableOpacity onPress= {nextProfile}>
           <Image style={styles.buttonBarLarge} source={Images.like} />
-        </View>
-        <View style={styles.buttonBarRadius}>
+        </TouchableOpacity>
+        <TouchableOpacity>
           <Image style={styles.buttonBarSmall} source={Images.superLike} />
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );
@@ -74,7 +93,6 @@ const styles = StyleSheet.create({
       ios: {
        height: 44,
       //  borderBottomColor: "black",
-        borderWidth: 3,
       },
       andriod: {
         height: 56
@@ -94,7 +112,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: "60%",
     width:"90%",
-    borderWidth: 1.5
   },
   buttonContainer: {
     //Margin
@@ -102,8 +119,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
-    borderColor: 'yellow',
-    borderWidth: 3,
     height: "4%",
     width: "90%",
   },
@@ -113,8 +128,6 @@ const styles = StyleSheet.create({
     width: window.width * 0.4,
     resizeMode: "contain",
     flex: 3,
-    borderBottomColor: "black",
-    borderWidth: 1,
     //borderRadius: 20 * 0.5,
     //borderWidth: 1,
   },

@@ -26,8 +26,8 @@ const profileStyle = StyleSheet.create({
     picture: {
         height: window.height * 0.35,
         width: window.height * 0.35,
-        borderRadius: 2,
-        borderWidth: 1,
+        borderColor: "#C5C5C5",
+        borderWidth: 3,
         zIndex: -1
     },
     pictureView: {
@@ -40,7 +40,8 @@ const profileStyle = StyleSheet.create({
     },
     textView: {
         flex: 1,
-        borderWidth: 1,
+        borderWidth: 3,
+        borderColor: "#C5C5C5",
         padding: 2,
         paddingLeft: 4,
         paddingBottom: 5,
@@ -52,7 +53,8 @@ const profileStyle = StyleSheet.create({
     fullView: {
         flexDirection: 'column',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+
 
     },
     profileName: {
