@@ -33,15 +33,19 @@ export default function App() {
     console.log("-------------------------------")
   
   }
-  const changeBGColor = () => {
-    styles.container.backgroundColor.replace('red')
+  const boost = () => {
+    console.log("boost function activated")
+    console.log("BOOOOOOOOOOOOOOOOOOSSSSSSSSSSSSSTTTTTTTTTTTTTTT")
+    console.log("-------------------------------")
   }
   
   return (
     <View style={styles.container}>
       <View style={styles.navigationBar}>
         <View>
-        <AntDesign name="setting" size={window.width * 0.1} color="#C5C5C5" />
+          <TouchableOpacity>
+              <AntDesign name="setting" size={window.width * 0.1} color="#C5C5C5" />
+          </TouchableOpacity>
         </View>
         <View>
           <Image style={styles.logo} source={Images.logo} />
@@ -60,13 +64,13 @@ export default function App() {
         <TouchableOpacity onPress= {nextProfile}>
           <Image style={styles.buttonBarLarge} source={Images.nope} />
         </TouchableOpacity>
-        <TouchableOpacity onPress={changeBGColor}>
+        <TouchableOpacity onPress= {boost}>
           <Image style={styles.buttonBarSmall} source={Images.boost} />
         </TouchableOpacity>
         <TouchableOpacity onPress= {nextProfile}>
           <Image style={styles.buttonBarLarge} source={Images.like} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress= {boost}>
           <Image style={styles.buttonBarSmall} source={Images.superLike} />
         </TouchableOpacity>
       </View>
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
     borderWidth: 0.5,
     borderRadius: 50,
     backgroundColor: "white",
-    borderColor: 'red',
+    borderColor: 'white',
     resizeMode: "contain",
   },
   buttonBarLarge: {
@@ -156,7 +160,7 @@ const styles = StyleSheet.create({
     width: 70,
     borderRadius: 70 * 0.5,
     borderWidth: 0.5,
-    borderColor: 'blue',
+    borderColor: 'white',
     backgroundColor: "white",
     resizeMode: "contain",
 
